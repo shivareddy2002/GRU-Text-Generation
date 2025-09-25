@@ -189,3 +189,14 @@ flowchart LR
 
     A --> B --> C --> D --> E --> F --> G
 
+## 🖼️ Visual Workflow
+
+```mermaid
+flowchart LR
+    1[📦 Importing Required Libraries]
+    2[📚 Input Text Corpus]
+    3[✂️ Preprocessing<br/>(Cleaning + Tokenization + Creating Sequences + Padding)]
+    4[🏗️ GRU Model<br/>(RNN Layers + Dense)]
+    5[⚡ Training<br/>(Categorical Crossentropy + Adam)]
+    6[✍️ Text Generation<br/>(Seed + Predicted Words)]
+    7[🌐 Streamlit Deployment<br/>(Interactive Web App)]
