@@ -1,9 +1,5 @@
 ﻿# GRU-Text-Generation
 # 📝 Text Generation Using GRU Model
-
-[![Python](https://img.shields.io/badge/Python-3.8+-blue)](https://www.python.org/) 
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)](https://www.tensorflow.org/) 
-[![Streamlit](https://img.shields.io/badge/Streamlit-App-red)](https://streamlit.io/) 
 A deep learning project that generates text sequences using a **Gated Recurrent Unit (GRU)** based Recurrent Neural Network (RNN).
 This project demonstrates **Text Generation** using a **GRU-based Recurrent Neural Network**.  
 It learns from a given text corpus and generates new text word-by-word. 
@@ -181,6 +177,7 @@ Created by **[LOMADA SIVA GANGI REDDY]**
     A --> B --> C --> D --> E --> F --> G
 
 ---
+
 
 
 
