@@ -179,24 +179,11 @@ The workflow ends with an **interactive Streamlit web app** for easy usage.
 
 ```mermaid
 flowchart LR
-    A[Importing Required Libraries]
-    B[Loading Input Text Corpus]
-    C[Preprocessing - Cleaning, Tokenization, Sequences, Padding]
-    D[GRU Model - RNN Layers + Dense]
-    E[Training - Categorical Crossentropy + Adam]
-    F[Text Generation - Seed + Predicted Words]
-    G[Streamlit Deployment - Interactive Web App]
-
-    A --> B --> C --> D --> E --> F --> G
-
-## 🖼️ Visual Workflow
-
-```mermaid
-flowchart LR
     1[📦 Importing Required Libraries]
-    2[📚 Input Text Corpus]
+    2[📚 Loading Input Text Corpus]
     3[✂️ Preprocessing<br/>(Cleaning + Tokenization + Creating Sequences + Padding)]
     4[🏗️ GRU Model<br/>(RNN Layers + Dense)]
     5[⚡ Training<br/>(Categorical Crossentropy + Adam)]
     6[✍️ Text Generation<br/>(Seed + Predicted Words)]
     7[🌐 Streamlit Deployment<br/>(Interactive Web App)]
+
