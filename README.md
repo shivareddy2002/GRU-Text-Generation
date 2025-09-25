@@ -1,7 +1,6 @@
 # 📝 Text Generation Using GRU Model
 
 A deep learning project that generates text sequences using a **Gated Recurrent Unit (GRU)** based Recurrent Neural Network (RNN).This project demonstrates **Text Generation** using a **GRU-based Recurrent Neural Network**.  It learns from a given text corpus and generates new text word-by-word. The project includes data preprocessing, model training, text generation, and deployment via a **Streamlit** web app. 🚀
-(https://github.com/shivareddy2002/GRU-Text-Generation/blob/main/UI_Galary/text_generation_flow.png).
 
 ---
 
@@ -12,7 +11,7 @@ Try the deployed Streamlit app here:
 ---
 
 ## 🚀 Project Overview
-
+(https://github.com/shivareddy2002/GRU-Text-Generation/blob/main/UI_Galary/text_generation_flow.png).
 The workflow involves the following key steps:
 
 ### 1️⃣ Importing Dependencies
@@ -178,6 +177,7 @@ Created by **[LOMADA SIVA GANGI REDDY]**
 
     %% --- Flow Connections ---
     A --> B --> C --> D --> E --> F --> G
+
 
 
 
