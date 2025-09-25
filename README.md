@@ -178,7 +178,6 @@ The workflow ends with an **interactive Streamlit web app** for easy usage.
 ## 🖼️ Visual Workflow
 
 ```mermaid
-flowchart LR
     A[Importing Required Libraries]
     B[Input Text Corpus]
     C[Preprocessing - Cleaning, Tokenization, Sequences, Padding]
@@ -188,4 +187,5 @@ flowchart LR
     G[Streamlit Deployment - Interactive Web App]
 
     A --> B --> C --> D --> E --> F --> G
+
 
