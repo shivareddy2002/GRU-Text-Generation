@@ -11,7 +11,6 @@ The project includes data preprocessing, model training, text generation, and de
 Try the deployed Streamlit app here:  
 **Text Generation using GRU Model** — [🌐 Live Demo](https://text-generation-using-gru-model.streamlit.app/)
 
-
 ---
 
 ## 🚀 Project Overview
@@ -47,6 +46,7 @@ Provide a custom text file as input for the model to learn from.
 A simple **web interface** built with Streamlit allows users to input a seed text and instantly generate new text outputs.
 
 ---
+
 ## 🚀 Key Features
 
 - Efficient **GRU architecture** for sequence learning.  
@@ -133,12 +133,13 @@ A simple **web interface** built with Streamlit allows users to input a seed tex
 - Replace the dataset to generate text in different styles/tones.
 
 ---
+
 ## ⚙️ Usage
 1. Open the Streamlit app.  
 2. Enter a seed text (starting phrase). 📝  
 3. Specify the number of words to generate. 🔢  
 4. Click **Generate** to see the output text. ▶️
----
+
 **Example Output:**  
 Seed text: `"Once upon a time"`  
 Generated text: `"Once upon a time in a land far away there lived a wise king..."` ✨
@@ -149,6 +150,7 @@ Generated text: `"Once upon a time in a land far away there lived a wise king...
 Created by **[LOMADA SIVA GANGI REDDY]**  
 
 ---
+
 ## 🖼️ Visual Workflow
 
 ```mermaid
@@ -178,6 +180,7 @@ Created by **[LOMADA SIVA GANGI REDDY]**
 
     %% --- Flow Connections ---
     A --> B --> C --> D --> E --> F --> G
+
 
 
 
