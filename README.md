@@ -196,13 +196,14 @@ The workflow ends with an **interactive Streamlit web app** for easy usage.
     subgraph GD[🚀 Text Generation ]
         F["✍️ Text Generation\n(Seed + Predicted Words)"]
     end
-   %% --- Deployment Stage ---
+    %% --- Deployment Stage ---
     subgraph GD[🚀  Deployment]
         G["🌐 Streamlit Deployment\n(Interactive Web App)"]
     end
 
     %% --- Flow Connections ---
     A --> B --> C --> D --> E --> F --> G
+
 
 
 
