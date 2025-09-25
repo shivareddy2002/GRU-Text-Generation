@@ -159,99 +159,23 @@ Key steps include:
    - Users can interactively input seed text and generate new text sequences.
 
 ---
+# 🤖 Text Generation using GRU
+
+This project demonstrates **Text Generation** using a **GRU-based Recurrent Neural Network**.  
+It learns from a given text corpus and generates new text word-by-word.  
+The workflow ends with an **interactive Streamlit web app** for easy usage.  
+
+---
 
 ## 🖼️ Visual Workflow
-Below is a diagram showing the **GRU-based text generation pipeline**:
 
 ```mermaid
 flowchart LR
-    A[📚 Input Text Corpus] --> B[✂️ Preprocessing<br/>(Tokenization + Padding)]
-    B --> C[🏗️ GRU Model<br/>(RNN Layers + Dense)]
-    C --> D[⚡ Training<br/>Categorical Crossentropy + Adam]
-    D --> E[✍️ Text Generation<br/>(Seed + Predicted Words)]
-    E --> F[🌐 Streamlit Deployment<br/>Interactive Web App]
-⚙️ Usage
-Open the Streamlit app.
-
-Enter a seed text (starting phrase). 📝
-
-Specify the number of words to generate. 🔢
-
-Click Generate to see the output text. ▶️
-
-Example Output:
-Seed text: "Once upon a time"
-Generated text: "Once upon a time in a land far away there lived a wise king..." ✨
-
-📊 Model Details
-Architecture: GRU layer(s) + Dense output layer
-
-Input: Tokenized and padded sequences of text
-
-Output: Probability distribution over the vocabulary for next word prediction
-
-Loss: Categorical Crossentropy
-
-Optimizer: Adam
-
-Why GRU?
-
-Fewer parameters than LSTM → faster training ⚡
-
-Retains capability to capture long-term dependencies ✅
-
-Ideal when you need a lightweight RNN for text generation
-
-🔎 Beam Search
-Considers multiple candidate sequences during generation
-
-Produces more coherent and contextually relevant text
-
-Useful for improved quality when generating longer passages 🧭
-
-💾 Dataset
-Any text corpus can be used (books, articles, plays, custom corpora). 📚
-
-Preprocessing steps: tokenization, sequence creation, padding.
-
-Replace the dataset to generate text in different styles/tones.
-
-🚀 Installation
-bash
-Copy code
-# Clone this repo
-git clone https://github.com/your-username/text-generation-gru.git
-cd text-generation-gru
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run Streamlit app
-streamlit run app.py
-🤝 Contributing
-Contributions are welcome! 🙌
-If you'd like to improve this project:
-
-Fork the repository 🍴
-
-Create a new branch (feature-xyz) 🌱
-
-Commit your changes ✅
-
-Push to your branch 🚀
-
-Open a Pull Request 🔥
-
-
-
-✨ Notes
-You can replace the dataset to generate text in different styles. 🎨
-
-Beam search can significantly improve text quality, especially for longer sequences. 🔁
-
-GRU is a lightweight alternative to LSTM while still capturing long-term dependencies. 🧠
-
-🎨 Author
-Created by [Lomada Siva Gangi Reddy] 
-Connect: GitHub · LinkedIn 🔗
+    1[📦 Importing Required Libraries]
+    2[📚 Input Text Corpus]
+    3[✂️ Preprocessing<br/>(Cleaning + Tokenization + Creating Sequences + Padding)]
+    4[🏗️ GRU Model<br/>(RNN Layers + Dense)]
+    5[⚡ Training<br/>(Categorical Crossentropy + Adam)]
+    6[✍️ Text Generation<br/>(Seed + Predicted Words)]
+    7[🌐 Streamlit Deployment<br/>(Interactive Web App)]
 
