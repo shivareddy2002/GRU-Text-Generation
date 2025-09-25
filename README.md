@@ -167,15 +167,25 @@ The workflow ends with an **interactive Streamlit web app** for easy usage.
 
 ---
 
+# 🤖 Text Generation using GRU
+
+This project demonstrates **Text Generation** using a **GRU-based Recurrent Neural Network**.  
+It learns from a given text corpus and generates new text word-by-word.  
+The workflow ends with an **interactive Streamlit web app** for easy usage.  
+
+---
+
 ## 🖼️ Visual Workflow
 
 ```mermaid
 flowchart LR
-    1[📦 Importing Required Libraries]
-    2[📚 Input Text Corpus]
-    3[✂️ Preprocessing<br/>(Cleaning + Tokenization + Creating Sequences + Padding)]
-    4[🏗️ GRU Model<br/>(RNN Layers + Dense)]
-    5[⚡ Training<br/>(Categorical Crossentropy + Adam)]
-    6[✍️ Text Generation<br/>(Seed + Predicted Words)]
-    7[🌐 Streamlit Deployment<br/>(Interactive Web App)]
+    A[Importing Required Libraries]
+    B[Input Text Corpus]
+    C[Preprocessing - Cleaning, Tokenization, Sequences, Padding]
+    D[GRU Model - RNN Layers + Dense]
+    E[Training - Categorical Crossentropy + Adam]
+    F[Text Generation - Seed + Predicted Words]
+    G[Streamlit Deployment - Interactive Web App]
+
+    A --> B --> C --> D --> E --> F --> G
 
