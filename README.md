@@ -1,6 +1,9 @@
 ﻿# GRU-Text-Generation
 # 📝 Text Generation Using GRU Model
 
+[![Python](https://img.shields.io/badge/Python-3.8+-blue)](https://www.python.org/) 
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange)](https://www.tensorflow.org/) 
+[![Streamlit](https://img.shields.io/badge/Streamlit-App-red)](https://streamlit.io/) 
 A deep learning project that generates text sequences using a **Gated Recurrent Unit (GRU)** based Recurrent Neural Network (RNN).
 This project demonstrates **Text Generation** using a **GRU-based Recurrent Neural Network**.  
 It learns from a given text corpus and generates new text word-by-word. 
@@ -48,52 +51,15 @@ Provide a custom text file as input for the model to learn from.
 A simple **web interface** built with Streamlit allows users to input a seed text and instantly generate new text outputs.
 
 ---
+## 🚀 Key Features
 
-## ⚙️ Usage
-1. Open the Streamlit app.  
-2. Enter a seed text (starting phrase). 📝  
-3. Specify the number of words to generate. 🔢  
-4. Click **Generate** to see the output text. ▶️
+- Efficient **GRU architecture** for sequence learning.  
+- **Beam Search** for better text coherence.  
+- Customizable **text corpus and hyperparameters**.  
+- Interactive **Streamlit web app** for real-time text generation.  
+- Lightweight and fast training compared to LSTMs.  
+- Supports checkpoint saving and model reuse.
 
-**Example Output:**  
-Seed text: `"Once upon a time"`  
-Generated text: `"Once upon a time in a land far away there lived a wise king..."` ✨
-
----
-
-## 📊 Model Details
-- **Architecture:** GRU layer(s) + Dense output layer  
-- **Input:** Tokenized and padded sequences of text  
-- **Output:** Probability distribution over the vocabulary for next word prediction  
-- **Loss:** Categorical Crossentropy  
-- **Optimizer:** Adam  
-
-**Why GRU?**  
-- Fewer parameters than LSTM → faster training ⚡  
-- Retains capability to capture long-term dependencies ✅  
-- Ideal when you need a lightweight RNN for text generation
-
----
-
-## 🔎 Beam Search
-- Considers multiple candidate sequences during generation  
-- Produces more coherent and contextually relevant text  
-- Useful for improved quality when generating longer passages 🧭
-
----
-
-## 💾 Dataset
-- Any text corpus can be used (books, articles, plays, custom corpora). 📚  
-- Preprocessing steps: tokenization, sequence creation, padding.  
-- Replace the dataset to generate text in different styles/tones.
-
----
-## 💡 Highlights
-- GRU architecture provides efficient sequence learning with reduced computational cost compared to traditional LSTMs.  
-- Interactive **Streamlit app** for real-time text generation.  
-- Fully customizable to work with any text dataset.
-
----
 ---
 
 ## 🧰 Dependencies
@@ -141,6 +107,49 @@ Generated text: `"Once upon a time in a land far away there lived a wise king...
 
 ---
 
+## 📊 Model Details
+
+- **Architecture:** GRU layer(s) + Dense output layer  
+- **Input:** Tokenized and padded sequences of text  
+- **Output:** Probability distribution over the vocabulary for next word prediction  
+- **Loss:** Categorical Crossentropy  
+- **Optimizer:** Adam  
+
+**Why GRU?**  
+- Fewer parameters than LSTM → faster training ⚡  
+- Retains capability to capture long-term dependencies ✅  
+- Ideal for lightweight text generation
+
+---
+
+## 🔎 Beam Search
+
+- Considers multiple candidate sequences during generation  
+- Produces more coherent and contextually relevant text  
+- Useful for improved quality when generating longer passages 🧭
+
+---
+
+## 💾 Dataset
+
+- Any text corpus can be used (books, articles, plays, custom corpora). 📚  
+- Preprocessing: tokenization, sequence creation, padding.  
+- Replace the dataset to generate text in different styles/tones.
+
+---
+## ⚙️ Usage
+1. Open the Streamlit app.  
+2. Enter a seed text (starting phrase). 📝  
+3. Specify the number of words to generate. 🔢  
+4. Click **Generate** to see the output text. ▶️
+---
+**Example Output:**  
+Seed text: `"Once upon a time"`  
+Generated text: `"Once upon a time in a land far away there lived a wise king..."` ✨
+---
+## 🎨 Author
+Created by **[LOMADA SIVA GANGI REDDY]**  
+---
 ## 🖼️ Visual Workflow
 
 ```mermaid
@@ -172,8 +181,6 @@ Generated text: `"Once upon a time in a land far away there lived a wise king...
     A --> B --> C --> D --> E --> F --> G
 
 ---
-## 🎨 Author
-Created by **[LOMADA SIVA GANGI REDDY]**  
 
 
 
