@@ -175,15 +175,13 @@ The workflow ends with an **interactive Streamlit web app** for easy usage.
 
 ---
 
-## 🖼️ Visual Workflow
-
-```mermaid
 flowchart LR
     1[📦 Importing Required Libraries]
     2[📚 Loading Input Text Corpus]
-    3[✂️ Preprocessing<br/>(Cleaning + Tokenization + Creating Sequences + Padding)]
-    4[🏗️ GRU Model<br/>(RNN Layers + Dense)]
-    5[⚡ Training<br/>(Categorical Crossentropy + Adam)]
-    6[✍️ Text Generation<br/>(Seed + Predicted Words)]
-    7[🌐 Streamlit Deployment<br/>(Interactive Web App)]
+    3[✂️ Preprocessing\n(Cleaning + Tokenization + Creating Sequences + Padding)]
+    4[🏗️ GRU Model\n(RNN Layers + Dense)]
+    5[⚡ Training\n(Categorical Crossentropy + Adam)]
+    6[✍️ Text Generation\n(Seed + Predicted Words)]
+    7[🌐 Streamlit Deployment\n(Interactive Web App)]
 
+    1 --> 2 --> 3 --> 4 --> 5 --> 6 --> 7
