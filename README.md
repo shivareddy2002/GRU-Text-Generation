@@ -192,14 +192,19 @@ The workflow ends with an **interactive Streamlit web app** for easy usage.
         E["⚡ Training\n(Categorical Crossentropy + Adam)"]
     end
 
-    %% --- Text Generation & Deployment Stage ---
-    subgraph GD[🚀 Text Generation & Deployment]
+    %% --- Text Generation Stage ---
+    subgraph GD[🚀 Text Generation ]
         F["✍️ Text Generation\n(Seed + Predicted Words)"]
+        G["🌐 Streamlit Deployment\n(Interactive Web App)"]
+    end
+       %% --- Deployment Stage ---
+    subgraph GD[🚀  Deployment]
         G["🌐 Streamlit Deployment\n(Interactive Web App)"]
     end
 
     %% --- Flow Connections ---
     A --> B --> C --> D --> E --> F --> G
+
 
 
 
