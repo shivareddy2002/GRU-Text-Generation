@@ -4,6 +4,7 @@ A deep learning project that generates text sequences using a **Gated Recurrent 
 This project demonstrates **Text Generation** using a **GRU-based Recurrent Neural Network**.  
 It learns from a given text corpus and generates new text word-by-word. 
 The project includes data preprocessing, model training, text generation, and deployment via a **Streamlit** web app. 🚀
+
 (https://github.com/shivareddy2002/GRU-Text-Generation/blob/main/UI_Galary/text_generation_flow.png)
 
 ---
@@ -181,6 +182,7 @@ Created by **[LOMADA SIVA GANGI REDDY]**
 
     %% --- Flow Connections ---
     A --> B --> C --> D --> E --> F --> G
+
 
 
 
