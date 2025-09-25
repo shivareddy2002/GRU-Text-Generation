@@ -179,13 +179,33 @@ The workflow ends with an **interactive Streamlit web app** for easy usage.
 
 ```mermaid
    flowchart LR
-    1[📦 Importing Required Libraries]
-    2[📚 Loading Input Text Corpus]
-    3[✂️ Preprocessing\n(Cleaning + Tokenization + Creating Sequences + Padding)]
-    4[🏗️ GRU Model\n(RNN Layers + Dense)]
-    5[⚡ Training\n(Categorical Crossentropy + Adam)]
-    6[✍️ Text Generation\n(Seed + Predicted Words)]
-    7[🌐 Streamlit Deployment\n(Interactive Web App)]
+    %% --- Nodes ---
+    A["📦 Importing Required Libraries"]
+    B["📚 Loading Input Text Corpus"]
+    C["✂️ Preprocessing\n(Cleaning + Tokenization + Creating Sequences + Padding)"]
+    D["🏗️ GRU Model\n(RNN Layers + Dense)"]
+    E["⚡ Training\n(Categorical Crossentropy + Adam)"]
+    F["✍️ Text Generation\n(Seed + Predicted Words)"]
+    G["🌐 Streamlit Deployment\n(Interactive Web App)"]
 
-    1 --> 2 --> 3 --> 4 --> 5 --> 6 --> 7
+    %% --- Flow Connections ---
+    A --> B --> C --> D --> E --> F --> G
+
+    %% --- Styling Groups ---
+    classDef importStyle fill=#E3F2FD,stroke=#1565C0,stroke-width=2px,color=#0D47A1,font-weight=bold,rx=15,ry=15
+    classDef preprocessStyle fill=#FFF3E0,stroke=#EF6C00,stroke-width=2px,color=#E65100,font-weight=bold,rx=15,ry=15
+    classDef modelStyle fill=#E8F5E9,stroke=#2E7D32,stroke-width=2px,color=#1B5E20,font-weight=bold,rx=15,ry=15
+    classDef trainingStyle fill=#F3E5F5,stroke=#6A1B9A,stroke-width=2px,color=#4A148C,font-weight=bold,rx=15,ry=15
+    classDef generateStyle fill=#FFFDE7,stroke=#F9A825,stroke-width=2px,color=#F57F17,font-weight=bold,rx=15,ry=15
+    classDef deployStyle fill=#E0F7FA,stroke=#00838F,stroke-width=2px,color=#006064,font-weight=bold,rx=15,ry=15
+
+    %% --- Assign Classes ---
+    class A,B importStyle
+    class C preprocessStyle
+    class D modelStyle
+    class E trainingStyle
+    class F generateStyle
+    class G deployStyle
+
+
 
