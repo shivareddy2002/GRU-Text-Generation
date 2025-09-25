@@ -12,6 +12,7 @@ Try the deployed Streamlit app here:
 
 ## 🚀 Project Overview
 (https://github.com/shivareddy2002/GRU-Text-Generation/blob/main/UI_Galary/text_generation_flow.png).
+
 The workflow involves the following key steps:
 
 ### 1️⃣ Importing Dependencies
@@ -92,14 +93,6 @@ A simple **web interface** built with Streamlit allows users to input a seed tex
 
 ---
 
-## ⚠️ Known Limitations
-
-- Generates probabilistic predictions; some outputs may be nonsensical.  
-- Large vocabularies may increase memory usage.  
-- May not fully capture grammar in long passages.
-
----
-
 ## 📊 Model Details
 
 - **Architecture:** GRU layer(s) + Dense output layer  
@@ -114,15 +107,6 @@ A simple **web interface** built with Streamlit allows users to input a seed tex
 - Ideal for lightweight text generation
 
 ---
-
-## 🔎 Beam Search
-
-- Considers multiple candidate sequences during generation  
-- Produces more coherent and contextually relevant text  
-- Useful for improved quality when generating longer passages 🧭
-
----
-
 ## 💾 Dataset
 
 - Any text corpus can be used (books, articles, plays, custom corpora). 📚  
@@ -177,6 +161,7 @@ Created by **[LOMADA SIVA GANGI REDDY]**
 
     %% --- Flow Connections ---
     A --> B --> C --> D --> E --> F --> G
+
 
 
 
