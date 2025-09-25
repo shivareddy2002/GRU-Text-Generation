@@ -15,29 +15,37 @@ Try the deployed Streamlit app here:
 
 ---
 
-## 💡 Project Overview
-This project generates text sequences by learning patterns from a given text dataset using a GRU-based neural network — efficient, fast, and effective for sequential data. ⚙️
+## 🚀 Project Overview
 
-Key steps include:
+The workflow involves the following key steps:
 
-1. **Data Preprocessing** ✂️  
-   - Tokenization: Converts text into sequences of integers.  
-   - Padding: Ensures all sequences have the same length for model input.  
-   - Input-Output Pair Creation: Prepares sequences by using the first N words as input and the next word as the target.
+### 1️⃣ Importing Dependencies
+Load essential libraries such as **TensorFlow/Keras**, **NumPy**, **Matplotlib** and other utilities for data processing and model building.
 
-2. **Model Building** 🏗️  
-   - GRU Layer(s): Captures sequential dependencies.  
-   - Dense Layer: Predicts the next word from the vocabulary.  
-   - Compilation: Uses categorical crossentropy loss and Adam optimizer.
+### 2️⃣ Loading the Text Corpus
+Provide a custom text file as input for the model to learn from.
 
-3. **Text Generation** ✍️  
-   - Seed text is provided by the user.  
-   - Next words are predicted iteratively to form sequences.  
-   - Supports **beam search** for higher-quality generation by exploring multiple candidate sequences.
+### 3️⃣ Preprocessing the Data
+- Cleaning the text (lowercasing, removing unwanted characters)  
+- Tokenizing words and converting them into numerical sequences  
+- Creating training sequences and applying padding for uniform input length
 
-4. **Deployment** 🚀  
-   - Integrated into a **Streamlit** app.  
-   - Users can interactively input seed text and generate new text sequences.
+### 4️⃣ Building the GRU Model
+- **Embedding layer** for word representations  
+- **GRU (Gated Recurrent Unit) layers** to capture sequential patterns  
+- **Dense output layer** with softmax activation for word prediction
+
+### 5️⃣ Training the Model
+- **Loss Function:** Categorical Crossentropy  
+- **Optimizer:** Adam  
+- The model is trained to predict the next word given a sequence of previous words.
+
+### 6️⃣ Generating Text
+- Provide a **seed text** to the trained model  
+- The model predicts and appends words iteratively to create meaningful text.
+
+### 7️⃣ Deploying with Streamlit
+A simple **web interface** built with Streamlit allows users to input a seed text and instantly generate new text outputs.
 
 ---
 
@@ -80,9 +88,56 @@ Generated text: `"Once upon a time in a land far away there lived a wise king...
 - Replace the dataset to generate text in different styles/tones.
 
 ---
+## 💡 Highlights
+- GRU architecture provides efficient sequence learning with reduced computational cost compared to traditional LSTMs.  
+- Interactive **Streamlit app** for real-time text generation.  
+- Fully customizable to work with any text dataset.
 
-## 🎨 Author
-Created by **[LOMADA SIVA GANGI REDDY]**  
+---
+---
+
+## 🧰 Dependencies
+
+- **Python**  
+- **TensorFlow / Keras**  
+- **NumPy**  
+- **Pandas**  
+- **Matplotlib**  
+- **Streamlit**
+
+---
+
+## 🔄 Customization
+
+- **Dataset**: Replace `data/input.txt` with your own text corpus.  
+- **Model Hyperparameters**: Modify embedding size, GRU units, and number of layers in `model.py`.  
+- **Generation Settings**: Change `beam_width` or `temperature` for different text creativity.
+
+---
+
+## 📈 Training & Evaluation
+
+- Model is trained using **categorical crossentropy** and **Adam optimizer**.  
+- Can evaluate model loss and perplexity during training.  
+- Supports checkpoint saving and loading to avoid retraining.
+
+---
+
+## 💡 Tips for Better Text Generation
+
+- Provide longer seed text for more coherent output.  
+- Adjust **temperature**:  
+  - `temperature < 1` → more predictable text  
+  - `temperature > 1` → more creative text  
+- Use **beam search** for improved sequence generation.
+
+---
+
+## ⚠️ Known Limitations
+
+- Generates probabilistic predictions; some outputs may be nonsensical.  
+- Large vocabularies may increase memory usage.  
+- May not fully capture grammar in long passages.
 
 ---
 
@@ -116,6 +171,9 @@ Created by **[LOMADA SIVA GANGI REDDY]**
     %% --- Flow Connections ---
     A --> B --> C --> D --> E --> F --> G
 
+---
+## 🎨 Author
+Created by **[LOMADA SIVA GANGI REDDY]**  
 
 
 
