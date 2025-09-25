@@ -142,9 +142,12 @@ A simple **web interface** built with Streamlit allows users to input a seed tex
 **Example Output:**  
 Seed text: `"Once upon a time"`  
 Generated text: `"Once upon a time in a land far away there lived a wise king..."` ✨
+
 ---
+
 ## 🎨 Author
 Created by **[LOMADA SIVA GANGI REDDY]**  
+
 ---
 ## 🖼️ Visual Workflow
 
@@ -175,6 +178,7 @@ Created by **[LOMADA SIVA GANGI REDDY]**
 
     %% --- Flow Connections ---
     A --> B --> C --> D --> E --> F --> G
+
 
 
 
