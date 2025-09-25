@@ -201,22 +201,7 @@ The workflow ends with an **interactive Streamlit web app** for easy usage.
     %% --- Flow Connections ---
     A --> B --> C --> D --> E --> F --> G
 
-    %% --- Styling Groups (GitHub-safe) ---
-    classDef importStyle fill=#E3F2FD,stroke=#1565C0,stroke-width=2px,color=#0D47A1
-    classDef preprocessStyle fill=#FFF3E0,stroke=#EF6C00,stroke-width=2px,color=#E65100
-    classDef modelStyle fill=#E8F5E9,stroke=#2E7D32,stroke-width=2px,color=#1B5E20
-    classDef trainingStyle fill=#F3E5F5,stroke=#6A1B9A,stroke-width=2px,color=#4A148C
-    classDef generateStyle fill=#FFFDE7,stroke=#F9A825,stroke-width=2px,color=#F57F17
-    classDef deployStyle fill=#E0F7FA,stroke=#00838F,stroke-width=2px,color=#006064
 
-    %% --- Assign Classes ---
-    class A importStyle
-    class B importStyle
-    class C preprocessStyle
-    class D modelStyle
-    class E trainingStyle
-    class F generateStyle
-    class G deployStyle
 
 
 
