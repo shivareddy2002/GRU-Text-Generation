@@ -181,12 +181,11 @@ The workflow ends with an **interactive Streamlit web app** for easy usage.
 flowchart LR
     A[Importing Required Libraries]
     B[Loading Input Text Corpus]
-    C[Preprocessing : (Cleaning, Tokenization, Sequences, Padding)]
+    C[Preprocessing - Cleaning, Tokenization, Sequences, Padding]
     D[GRU Model - RNN Layers + Dense]
     E[Training - Categorical Crossentropy + Adam]
-    F[Text Generation : ( Seed + Predicted Words)]
+    F[Text Generation - Seed + Predicted Words]
     G[Streamlit Deployment - Interactive Web App]
 
     A --> B --> C --> D --> E --> F --> G
-
 
