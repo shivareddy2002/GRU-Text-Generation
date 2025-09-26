@@ -127,12 +127,16 @@ Generated text: `"Once upon a time in a land far away there lived a wise king...
 
 ---
 
-## 👨‍💻 Author
-- **LOMADA SIVA GANGI REDDY**  
-- 💡 B.Tech CSE (Data Science), RGMCET (2021–2025)  
-- 📍 Available for internships & Job offer 
-- 💌 Contact Me : 9346493592
-- 📍 [LinkedIn](https://www.linkedin.com/in/lomada-siva-gangi-reddy-a64197280/) | [GitHub](https://github.com/shivareddy2002)
+## 👨‍💻 Author  
+
+**Lomada Siva Gangi Reddy**  
+- 🎓 B.Tech CSE (Data Science), RGMCET (2021–2025)  
+- 💡 Interests: Python | Machine Learning | Deep Learning | Data Science  
+- 📍 Open to **Internships & Job Offers**  
+
+📬 **Contact Me**:  
+- 📞 9346493592  
+- [💼 LinkedIn](https://www.linkedin.com/in/lomada-siva-gangi-reddy-a64197280/) [🌐 GitHub](https://github.com/shivareddy2002)  
 
 ---
 
@@ -165,6 +169,15 @@ Generated text: `"Once upon a time in a land far away there lived a wise king...
 
     %% --- Flow Connections ---
     A --> B --> C --> D --> E --> F --> G
+    %% Styles
+    style A fill:#FFD54F,stroke:#F57F17,stroke-width:2px,color:#000;
+    style B fill:#4FC3F7,stroke:#0277BD,stroke-width:2px,color:#fff;
+    style C fill:#AED581,stroke:#33691E,stroke-width:2px,color:#000;
+    style D fill:#BA68C8,stroke:#4A148C,stroke-width:2px,color:#fff;
+    style E fill:#FF8A65,stroke:#BF360C,stroke-width:2px,color:#fff;
+    style F fill:#90CAF9,stroke:#0D47A1,stroke-width:2px,color:#000;
+    style G fill:#F44336,stroke:#B71C1C,stroke-width:2px,color:#fff
+
 
 
 
