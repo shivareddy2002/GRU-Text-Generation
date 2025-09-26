@@ -127,8 +127,12 @@ Generated text: `"Once upon a time in a land far away there lived a wise king...
 
 ---
 
-## 🎨 Author
-Created by **[LOMADA SIVA GANGI REDDY]**  
+## 👨‍💻 Author
+- **LOMADA SIVA GANGI REDDY**  
+- 💡 B.Tech CSE (Data Science), RGMCET (2021–2025)  
+- 📍 Available for internships & Job offer 
+- 💌 Contact Me : 9346493592
+- 📍 [LinkedIn](https://www.linkedin.com/in/lomada-siva-gangi-reddy-a64197280/) | [GitHub](https://github.com/shivareddy2002)
 
 ---
 
@@ -161,6 +165,7 @@ Created by **[LOMADA SIVA GANGI REDDY]**
 
     %% --- Flow Connections ---
     A --> B --> C --> D --> E --> F --> G
+
 
 
 
