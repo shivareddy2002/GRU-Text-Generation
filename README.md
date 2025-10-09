@@ -139,7 +139,54 @@ Generated text: `"Once upon a time in a land far away there lived a wise king...
 - [💼 LinkedIn](https://www.linkedin.com/in/lomada-siva-gangi-reddy-a64197280/) [🌐 GitHub](https://github.com/shivareddy2002)  
 
 ---
+<!--
+Project Title: Text Generation using Gated Recurrent Unit (GRU)
 
+Overview:
+This project focuses on generating human-like text using a Recurrent Neural Network (RNN) architecture with Gated Recurrent Units (GRUs). The GRU’s gating mechanism effectively mitigates the vanishing gradient problem in traditional RNNs, allowing the model to learn and retain long-term dependencies in textual data. The model operates as a character-level or word-level language generator, predicting the next token in a sequence to produce coherent text.
+
+Project Workflow:
+
+Data Preprocessing:
+
+Collected and cleaned a large corpus of text data (e.g., novels, poems, or song lyrics).
+
+Created a vocabulary of unique tokens and mapped each to an integer index.
+
+Generated overlapping text sequences, where each input sequence’s next token served as the prediction target.
+
+Model Architecture:
+
+Embedding Layer: Transformed integer-encoded text into dense vector representations.
+
+GRU Layers: Captured sequential patterns and long-term dependencies. Multiple GRU layers were stacked for enhanced learning.
+
+Dense Output Layer: Contained a neuron for each token in the vocabulary, with a Softmax activation to output probability distributions.
+
+Model Training:
+
+Trained using Sparse Categorical Cross-Entropy as the loss function and Adam optimizer for efficient gradient updates.
+
+The model learned to minimize prediction error between predicted and actual next tokens.
+
+Text Generation:
+
+Initiated generation using a seed phrase.
+
+Predicted the next token iteratively using the trained model.
+
+Applied a temperature parameter to balance randomness and creativity during generation.
+
+Tools & Technologies:
+Python, TensorFlow/Keras, NumPy, Pandas, Matplotlib
+
+Example Use Case:
+
+Story Generation: Trained the model on a collection of novels to generate new storylines or continue text based on a starting prompt.
+
+Outcome:
+Successfully generated contextually relevant and stylistically consistent text, demonstrating the model’s ability to learn complex language structures and dependencies.
+-->
 ## 🖼️ Visual Workflow
 
 ```mermaid
@@ -177,6 +224,7 @@ Generated text: `"Once upon a time in a land far away there lived a wise king...
     style E fill:#FF8A65,stroke:#BF360C,stroke-width:2px,color:#fff;
     style F fill:#90CAF9,stroke:#0D47A1,stroke-width:2px,color:#000;
     style G fill:#F44336,stroke:#B71C1C,stroke-width:2px,color:#fff
+
 
 
 
