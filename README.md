@@ -224,6 +224,13 @@ Successfully generated contextually relevant and stylistically consistent text, 
     style E fill:#FF8A65,stroke:#BF360C,stroke-width:2px,color:#fff;
     style F fill:#90CAF9,stroke:#0D47A1,stroke-width:2px,color:#000;
     style G fill:#F44336,stroke:#B71C1C,stroke-width:2px,color:#fff
+```
+| *Role*                 | *Core Focus*                   | *Key Tools / Tech Stack*                                                 |
+| ---------------------- | ----------------------------   | --------------------------------------------------------------------     |
+| *Frontend Developer*   | Web interface & interactivity  | HTML5, CSS3, JavaScript (ES6+), Bootstrap, Tailwind, AJAX/Fetch API      |
+| *Backend Developer*    | API logic & integrations       | Python 3.10+, FastAPI, REST/GraphQL APIs, SendGrid SDK                   |
+| *AI/ML Engineer*       | NLP, Semantic Search & Scoring | spaCy, LangChain, OpenAI/HuggingFace APIs, FAISS/Pinecone, Pandas, NumPy |
+| *Database Engineer*    | Data architecture & management | PostgreSQL (SQLAlchemy ORM), MongoDB (PyMongo), MySQL (pymysql)          |
 
 
 
