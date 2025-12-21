@@ -1,4 +1,6 @@
-# 📝 Text Generation Using GRU Model
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:8e2de2,100:4a00e0&height=180&section=header&text=📝%20Text%20Generation%20Using%20GRU%20Model&fontSize=34&fontColor=ffffff&animation=fadeIn&fontAlignY=35"/>
+</p>
 
 A deep learning project that generates text sequences using a **Gated Recurrent Unit (GRU)** based Recurrent Neural Network (RNN).This project demonstrates **Text Generation** using a **GRU-based Recurrent Neural Network**.  It learns from a given text corpus and generates new text word-by-word. The project includes data preprocessing, model training, text generation, and deployment via a **Streamlit** web app. 🚀
 
@@ -225,6 +227,25 @@ Successfully generated contextually relevant and stylistically consistent text, 
     style F fill:#90CAF9,stroke:#0D47A1,stroke-width:2px,color:#000;
     style G fill:#F44336,stroke:#B71C1C,stroke-width:2px,color:#fff
 ```
+
+## 👨‍💻 Author  
+
+**Lomada Siva Gangi Reddy**  
+- 🎓 B.Tech CSE (Data Science), RGMCET (2021–2025)  
+- 💡 Interests: Python | Machine Learning | Deep Learning | Data Science  
+- 📍 Open to **Internships & Job Offers**
+
+ **Contact Me**:  
+
+- 📧 **Email**: lomadasivagangireddy3@gmail.com  
+- 📞 **Phone**: 9346493592  
+- 💼 [LinkedIn](https://www.linkedin.com/in/lomada-siva-gangi-reddy-a64197280/)  🌐 [GitHub](https://github.com/shivareddy2002)  🚀 [Portfolio](https://lsgr-portfolio-pulse.lovable.app/)
+
+---
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:f9c74f,100:ff4b4b&height=120&section=footer"/>
+</p>
 
 
 
