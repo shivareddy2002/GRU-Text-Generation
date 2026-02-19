@@ -199,7 +199,7 @@ from generate import (
 )
 
 # -----------------------------------------------------
-# 🔒 Cache model/tokenizer
+# Cache model
 # -----------------------------------------------------
 @st.cache_resource(show_spinner="Loading GRU model...")
 def get_model_tokenizer():
@@ -207,61 +207,81 @@ def get_model_tokenizer():
 
 
 # -----------------------------------------------------
-# 🚀 Main App
+# MAIN
 # -----------------------------------------------------
 def main():
     st.set_page_config(
-        page_title="Text Generator using GRU Model",
+        page_title="GRU Text Generator",
         page_icon="🤖",
-        layout="wide",
-        initial_sidebar_state="expanded"
+        layout="wide"
     )
 
-    # ---------- Custom CSS ----------
+    # ---------- CLEAN PROFESSIONAL THEME ----------
     st.markdown("""
         <style>
-        body, .stApp {
-            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+        /* App background */
+        .stApp {
+            background-color: #f5f7fb;
         }
-        @keyframes gradientBG {
-            0% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            100% {background-position: 0% 50%;}
+
+        /* Center content */
+        .block-container {
+            max-width: 1100px;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 16px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 20px;
+
+        /* Card */
+        .card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             margin-bottom: 20px;
         }
+
+        /* Title */
+        .title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Result */
         .result-box {
-            background-color: #f0f2f6;
-            border-left: 5px solid #ff4b4b;
-            padding: 15px;
-            border-radius: 5px;
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            padding: 16px;
+            border-radius: 8px;
             font-family: monospace;
             white-space: pre-wrap;
         }
+
+        /* Sidebar */
+        section[data-testid="stSidebar"] {
+            background-color: #ffffff;
+            border-right: 1px solid #e5e7eb;
+        }
+
         </style>
     """, unsafe_allow_html=True)
 
     # ---------- Sidebar ----------
     with st.sidebar:
-        st.title("🚀 Siva's AI Lab")
+        st.title("🤖 GRU Generator")
         st.markdown("---")
-        st.markdown("### 🧭 Navigation")
         nav = st.radio(
-            "Go to",
+            "Navigation",
             ["Home", "About", "How It Works", "Contact"],
             label_visibility="collapsed"
         )
         st.markdown("---")
-        st.info("💡 Tip: Decoding controls improve text quality.")
+        st.caption("Temperature controls creativity.")
 
     # ---------- Routing ----------
     if nav == "Home":
@@ -275,80 +295,74 @@ def main():
 
 
 # -----------------------------------------------------
-# 🏠 Home
+# HOME
 # -----------------------------------------------------
 def show_home():
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.title("🤖 GRU Text Generator")
-    st.caption("Generate human-like text sequences using Deep Learning.")
+
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.markdown('<div class="title">GRU Text Generator</div>', unsafe_allow_html=True)
+    st.markdown('<div class="subtitle">Generate human-like text using a GRU neural network</div>', unsafe_allow_html=True)
     st.markdown('</div>', unsafe_allow_html=True)
 
-    col1, col2 = st.columns([1, 1.5], gap="medium")
+    col1, col2 = st.columns([1, 1.4], gap="large")
 
-    # LEFT COLUMN
+    # LEFT
     with col1:
-        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-        st.subheader("✍️ Configuration")
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.subheader("Configuration")
 
         with st.form("generation_form"):
             seed = st.text_area(
                 "Seed Text",
-                height=150,
-                placeholder="Start your story here..."
+                height=160,
+                placeholder="Start writing here..."
             )
 
-            with st.expander("⚙️ Generation Parameters", expanded=True):
-                length = st.slider("Word Count", 10, 1000, 50)
-                temperature = st.slider("Temperature", 0.1, 2.0, 0.8)
+            st.markdown("#### Generation")
+            length = st.slider("Word Count", 10, 1000, 50)
+            temperature = st.slider("Temperature", 0.1, 2.0, 0.8)
 
-            # 🔥 NEW: Decoding Controls
-            with st.expander("🧠 Decoding Controls (GPT-style)", expanded=False):
-                decoding_mode = st.selectbox(
-                    "Decoding Mode",
-                    ["GPT (recommended)", "Creative", "Strict", "Greedy"]
-                )
+            st.markdown("#### Mode")
+            decoding_mode = st.selectbox(
+                "Style",
+                ["GPT (balanced)", "Creative", "Strict", "Greedy"]
+            )
 
-                top_k = st.slider("Top-K", 0, 100, 50)
-                top_p = st.slider("Top-P (nucleus)", 0.1, 1.0, 0.9)
-                repetition_penalty = st.slider("Repetition Penalty", 1.0, 2.0, 1.1)
+            repetition_penalty = st.slider(
+                "Repetition Penalty",
+                1.0, 2.0, 1.1
+            )
 
             generate_btn = st.form_submit_button(
-                "🚀 Generate Text",
+                "Generate Text",
                 use_container_width=True
             )
 
         st.markdown('</div>', unsafe_allow_html=True)
 
-    # RIGHT COLUMN
+    # RIGHT
     with col2:
-        st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-        st.subheader("✨ Result")
+        st.markdown('<div class="card">', unsafe_allow_html=True)
+        st.subheader("Result")
 
         if generate_btn:
             if not seed.strip():
-                st.warning("⚠️ Please enter seed text.")
+                st.warning("Please enter seed text.")
             else:
                 model, tokenizer, max_sequence_len, index_word = get_model_tokenizer()
 
-                # Apply preset modes
+                # Mode presets
                 if decoding_mode == "Creative":
                     temperature = 1.1
-                    top_k = 80
-                    top_p = 0.95
                     repetition_penalty = 1.0
                 elif decoding_mode == "Strict":
                     temperature = 0.5
-                    top_k = 20
-                    top_p = 0.8
                     repetition_penalty = 1.2
                 elif decoding_mode == "Greedy":
                     temperature = 0.1
-                    top_k = 0
-                    top_p = 1.0
                     repetition_penalty = 1.0
-                # GPT default otherwise
 
-                with st.spinner("Generating text..."):
+                with st.spinner("Generating..."):
                     t0 = time.time()
                     generated = generate_text(
                         seed_text=seed.strip(),
@@ -358,13 +372,11 @@ def show_home():
                         max_sequence_len=max_sequence_len,
                         index_word=index_word,
                         temperature=temperature,
-                        top_k=top_k,
-                        top_p=top_p,
                         repetition_penalty=repetition_penalty
                     )
                     t1 = time.time()
 
-                st.success(f"✅ Generated in {t1 - t0:.2f}s")
+                st.success(f"Generated in {t1 - t0:.2f}s")
 
                 st.markdown(
                     f'<div class="result-box">{generated}</div>',
@@ -372,82 +384,70 @@ def show_home():
                 )
 
                 st.download_button(
-                    label="📥 Download Result",
-                    data=generated,
-                    file_name="generated_text.txt",
-                    mime="text/plain"
+                    "Download",
+                    generated,
+                    file_name="generated_text.txt"
                 )
 
                 if "history" not in st.session_state:
                     st.session_state.history = []
-
                 st.session_state.history.insert(0, generated)
 
         else:
-            st.info("👈 Enter text on the left to start generating!")
+            st.info("Enter text and click Generate.")
 
         st.markdown('</div>', unsafe_allow_html=True)
 
     # HISTORY
     if "history" in st.session_state and st.session_state.history:
-        st.markdown("---")
-        st.subheader("📜 Recent Generations")
-
+        st.markdown("### Recent Generations")
         for i, txt in enumerate(st.session_state.history[:3]):
-            with st.expander(f"Result #{i+1}"):
-                st.code(txt, language="text")
-
+            with st.expander(f"Result {i+1}"):
+                st.code(txt)
 
 # -----------------------------------------------------
-# ℹ️ About
+# ABOUT
 # -----------------------------------------------------
 def show_about():
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.title("ℹ️ About")
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.title("About")
     st.write("""
-    This project demonstrates **Text Generation** using a **GRU Neural Network**.
-
-    The model:
-    - Learns word sequences
-    - Predicts next word probabilities
-    - Generates coherent text step-by-step
+    This project demonstrates text generation using a GRU neural network.
+    The model predicts next words sequentially to create coherent text.
     """)
     st.markdown('</div>', unsafe_allow_html=True)
 
 
 # -----------------------------------------------------
-# ⚙️ How It Works
+# HOW
 # -----------------------------------------------------
 def show_how():
-    st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-    st.title("⚙️ How It Works")
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.title("How It Works")
 
     col1, col2, col3 = st.columns(3)
-
     with col1:
-        st.subheader("📜 Step 1")
+        st.subheader("Step 1")
         st.write("Enter seed text.")
-
     with col2:
-        st.subheader("⚙️ Step 2")
-        st.write("Adjust parameters & decoding.")
-
+        st.subheader("Step 2")
+        st.write("Adjust parameters.")
     with col3:
-        st.subheader("🤖 Step 3")
-        st.write("GRU generates text.")
+        st.subheader("Step 3")
+        st.write("Model generates text.")
 
     st.markdown('</div>', unsafe_allow_html=True)
 
 
 # -----------------------------------------------------
-# 📬 Contact
+# CONTACT
 # -----------------------------------------------------
 def show_contact():
-    st.title("🤖 Text Generation using GRU Model")
-    st.header("📬 Contact")
-    st.write("👤 **Name :**  Lomada Siva Gangi Reddy ")
-    st.write("📧 Email: [lomadasivagangireddy3@gmail.com](mailto:lomadasivagangireddy3@gmail.com)")
-    st.write("🌐 GitHub: [github.com/shivareddy2002](https://github.com/shivareddy2002)")
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    st.title("Contact")
+    st.write("Lomada Siva Gangi Reddy")
+    st.write("lomadasivagangireddy3@gmail.com")
+    st.write("github.com/shivareddy2002")
     st.markdown('</div>', unsafe_allow_html=True)
 
 
