@@ -199,7 +199,7 @@ from generate import (
 )
 
 # -----------------------------------------------------
-# 🔒 Cache model/tokenizer so they load only once
+# 🔒 Cache model/tokenizer
 # -----------------------------------------------------
 @st.cache_resource(show_spinner="Loading GRU model...")
 def get_model_tokenizer():
@@ -217,10 +217,9 @@ def main():
         initial_sidebar_state="expanded"
     )
 
-    # ---------- Custom CSS (Updated Glass UI) ----------
+    # ---------- Custom CSS ----------
     st.markdown("""
         <style>
-        /* Animated Gradient Background */
         body, .stApp {
             background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
             background-size: 400% 400%;
@@ -231,20 +230,15 @@ def main():
             50% {background-position: 100% 50%;}
             100% {background-position: 0% 50%;}
         }
-
-        /* Glass Card */
         .glass-card {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 16px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
             border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 20px;
             margin-bottom: 20px;
         }
-
-        /* Result Box */
         .result-box {
             background-color: #f0f2f6;
             border-left: 5px solid #ff4b4b;
@@ -267,7 +261,7 @@ def main():
             label_visibility="collapsed"
         )
         st.markdown("---")
-        st.info("💡 Tip: Adjust 'Temperature' to control creativity.")
+        st.info("💡 Tip: Decoding controls improve text quality.")
 
     # ---------- Routing ----------
     if nav == "Home":
@@ -284,16 +278,14 @@ def main():
 # 🏠 Home
 # -----------------------------------------------------
 def show_home():
-    # Title Card
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     st.title("🤖 GRU Text Generator")
     st.caption("Generate human-like text sequences using Deep Learning.")
     st.markdown('</div>', unsafe_allow_html=True)
 
-    # Layout Columns
     col1, col2 = st.columns([1, 1.5], gap="medium")
 
-    # LEFT — Inputs
+    # LEFT COLUMN
     with col1:
         st.markdown('<div class="glass-card">', unsafe_allow_html=True)
         st.subheader("✍️ Configuration")
@@ -305,9 +297,20 @@ def show_home():
                 placeholder="Start your story here..."
             )
 
-            with st.expander("⚙️ Advanced Parameters"):
+            with st.expander("⚙️ Generation Parameters", expanded=True):
                 length = st.slider("Word Count", 10, 1000, 50)
-                temperature = st.slider("Creativity (Temperature)", 0.1, 2.0, 0.7)
+                temperature = st.slider("Temperature", 0.1, 2.0, 0.8)
+
+            # 🔥 NEW: Decoding Controls
+            with st.expander("🧠 Decoding Controls (GPT-style)", expanded=False):
+                decoding_mode = st.selectbox(
+                    "Decoding Mode",
+                    ["GPT (recommended)", "Creative", "Strict", "Greedy"]
+                )
+
+                top_k = st.slider("Top-K", 0, 100, 50)
+                top_p = st.slider("Top-P (nucleus)", 0.1, 1.0, 0.9)
+                repetition_penalty = st.slider("Repetition Penalty", 1.0, 2.0, 1.1)
 
             generate_btn = st.form_submit_button(
                 "🚀 Generate Text",
@@ -316,7 +319,7 @@ def show_home():
 
         st.markdown('</div>', unsafe_allow_html=True)
 
-    # RIGHT — Results
+    # RIGHT COLUMN
     with col2:
         st.markdown('<div class="glass-card">', unsafe_allow_html=True)
         st.subheader("✨ Result")
@@ -325,7 +328,25 @@ def show_home():
             if not seed.strip():
                 st.warning("⚠️ Please enter seed text.")
             else:
-                model, tokenizer, max_sequence_len = get_model_tokenizer()
+                model, tokenizer, max_sequence_len, index_word = get_model_tokenizer()
+
+                # Apply preset modes
+                if decoding_mode == "Creative":
+                    temperature = 1.1
+                    top_k = 80
+                    top_p = 0.95
+                    repetition_penalty = 1.0
+                elif decoding_mode == "Strict":
+                    temperature = 0.5
+                    top_k = 20
+                    top_p = 0.8
+                    repetition_penalty = 1.2
+                elif decoding_mode == "Greedy":
+                    temperature = 0.1
+                    top_k = 0
+                    top_p = 1.0
+                    repetition_penalty = 1.0
+                # GPT default otherwise
 
                 with st.spinner("Generating text..."):
                     t0 = time.time()
@@ -334,7 +355,12 @@ def show_home():
                         next_words=length,
                         model=model,
                         tokenizer=tokenizer,
-                        max_sequence_len=max_sequence_len
+                        max_sequence_len=max_sequence_len,
+                        index_word=index_word,
+                        temperature=temperature,
+                        top_k=top_k,
+                        top_p=top_p,
+                        repetition_penalty=repetition_penalty
                     )
                     t1 = time.time()
 
@@ -362,7 +388,7 @@ def show_home():
 
         st.markdown('</div>', unsafe_allow_html=True)
 
-    # History
+    # HISTORY
     if "history" in st.session_state and st.session_state.history:
         st.markdown("---")
         st.subheader("📜 Recent Generations")
@@ -378,7 +404,6 @@ def show_home():
 def show_about():
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     st.title("ℹ️ About")
-
     st.write("""
     This project demonstrates **Text Generation** using a **GRU Neural Network**.
 
@@ -387,7 +412,6 @@ def show_about():
     - Predicts next word probabilities
     - Generates coherent text step-by-step
     """)
-
     st.markdown('</div>', unsafe_allow_html=True)
 
 
@@ -406,11 +430,11 @@ def show_how():
 
     with col2:
         st.subheader("⚙️ Step 2")
-        st.write("Adjust parameters.")
+        st.write("Adjust parameters & decoding.")
 
     with col3:
         st.subheader("🤖 Step 3")
-        st.write("GRU generates new text.")
+        st.write("GRU generates text.")
 
     st.markdown('</div>', unsafe_allow_html=True)
 
@@ -418,13 +442,6 @@ def show_how():
 # -----------------------------------------------------
 # 📬 Contact
 # -----------------------------------------------------
-# def show_contact():
-#     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
-#     st.title("📬 Contact")
-#     st.write("👤 Lomada Siva Gangi Reddy")
-#     st.write("📧 lomadasivagangireddy3@gmail.com")
-#     st.write("🌐 github.com/shivareddy2002")
-#     st.markdown('</div>', unsafe_allow_html=True)
 def show_contact():
     st.title("🤖 Text Generation using GRU Model")
     st.header("📬 Contact")
