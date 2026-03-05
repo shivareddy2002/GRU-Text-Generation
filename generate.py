@@ -64,6 +64,7 @@ def generate_text(
             padding="pre"
         )
 
+    
         probs = model.predict(token_list, verbose=0)[0]
 
         next_index = gpt_sample(probs, temperature)
