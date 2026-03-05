@@ -8,8 +8,19 @@ from generate import generate_text, load_model_and_tokenizer
 @st.cache_resource(show_spinner="Loading GRU model...")
 def get_model_tokenizer():
     try:
-        model, tokenizer, max_sequence_len = load_model_and_tokenizer()
-        return model, tokenizer, max_sequence_len
+        loaded = load_model_and_tokenizer()
+
+        if isinstance(loaded, (tuple, list)):
+            if len(loaded) >= 3:
+                model, tokenizer, max_sequence_len = loaded[:3]
+                return model, tokenizer, max_sequence_len
+            raise ValueError(
+                f"Unexpected model loader output length: {len(loaded)}. Expected at least 3 values."
+            )
+
+        raise TypeError(
+            "Model loader returned an unexpected type. Expected tuple/list with model, tokenizer, max_sequence_len."
+        )
     except Exception as e:
         st.error(f"Error loading model: {e}")
         return None, None, None
