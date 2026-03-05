@@ -25,9 +25,7 @@ def load_model_and_tokenizer():
 
     max_sequence_len = model.input_shape[1]
 
-    index_word = {index: word for word, index in tokenizer.word_index.items()}
-
-    return model, tokenizer, max_sequence_len, index_word
+    return model, tokenizer, max_sequence_len
 
 
 def gpt_sample(probs, temperature=1.0):
@@ -50,11 +48,11 @@ def generate_text(
     model,
     tokenizer,
     max_sequence_len,
-    index_word,
     temperature=1.0,
 ):
 
     text = seed_text.strip()
+    index_word = {index: word for word, index in tokenizer.word_index.items()}
 
     for _ in range(next_words):
 
