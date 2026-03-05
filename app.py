@@ -181,7 +181,7 @@ def show_about():
     st.markdown("- Efficient **GRU architecture** for sequence learning.")
     st.markdown("- **Beam search style next-word generation controls** with temperature sampling.")
     st.markdown("- Interactive **Streamlit web app** for real-time text generation.")
-    st.markdown("- Lightweight and fast training compared to LSTMs.")
+    st.markdown("- Lightweight and fast training compared to LSTM.")
 
     st.markdown("### 🧰 Dependencies")
     st.markdown("- Python")
