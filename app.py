@@ -8,8 +8,19 @@ from generate import generate_text, load_model_and_tokenizer
 @st.cache_resource(show_spinner="Loading GRU model...")
 def get_model_tokenizer():
     try:
-        model, tokenizer, max_sequence_len = load_model_and_tokenizer()
-        return model, tokenizer, max_sequence_len
+        loaded = load_model_and_tokenizer()
+
+        if isinstance(loaded, (tuple, list)):
+            if len(loaded) >= 3:
+                model, tokenizer, max_sequence_len = loaded[:3]
+                return model, tokenizer, max_sequence_len
+            raise ValueError(
+                f"Unexpected model loader output length: {len(loaded)}. Expected at least 3 values."
+            )
+
+        raise TypeError(
+            "Model loader returned an unexpected type. Expected tuple/list with model, tokenizer, max_sequence_len."
+        )
     except Exception as e:
         st.error(f"Error loading model: {e}")
         return None, None, None
@@ -110,7 +121,8 @@ def show_home():
                 next_words=length,
                 model=model,
                 tokenizer=tokenizer,
-                max_sequence_len=max_sequence_len
+                max_sequence_len=max_sequence_len,
+                temperature=temperature
             )
 
             end = time.time()
@@ -157,40 +169,59 @@ def show_about():
 
     st.write(
         """
-        This project demonstrates **Text Generation using a GRU Neural Network**.
+        A deep learning project that generates text sequences using a **Gated Recurrent Unit (GRU)** based Recurrent Neural Network (RNN).
 
-        The model learns patterns in text sequences and predicts the next word
-        step by step to generate new text.
+        This project demonstrates **Text Generation** using a **GRU-based Recurrent Neural Network**. It learns from a given text corpus
+        and generates new text word-by-word. The project includes data preprocessing, model training, text generation, and deployment
+        via a **Streamlit** web app. 🚀
         """
     )
 
-    with st.expander("Dataset Details"):
-        st.write("• Tokenization")
-        st.write("• Sequence generation")
-        st.write("• Vocabulary mapping")
-        st.write("• Train/Test split")
+    st.markdown("### 🚀 Key Features")
+    st.markdown("- Efficient **GRU architecture** for sequence learning.")
+    st.markdown("- **Beam search style next-word generation controls** with temperature sampling.")
+    st.markdown("- Interactive **Streamlit web app** for real-time text generation.")
+    st.markdown("- Lightweight and fast training compared to LSTMs.")
+
+    st.markdown("### 🧰 Dependencies")
+    st.markdown("- Python")
+    st.markdown("- TensorFlow / Keras")
+    st.markdown("- NumPy")
+    st.markdown("- Pandas")
+    st.markdown("- Matplotlib")
+    st.markdown("- Streamlit")
 
 
 # -----------------------------------------------------
 # ⚙️ HOW IT WORKS
-# -----------------------------------------------------
 def show_how():
 
     st.title("⚙️ How It Works")
 
-    col1, col2, col3 = st.columns(3)
+    steps = [
+        ("1️⃣ Importing Dependencies", "Load TensorFlow/Keras, NumPy, Matplotlib, and utilities for preprocessing and training."),
+        ("2️⃣ Loading the Text Corpus", "Provide a custom input text file so the model can learn writing patterns."),
+        ("3️⃣ Preprocessing the Data", "Clean text, tokenize words, create numerical sequences, and pad inputs to a fixed length."),
+        ("4️⃣ Building the GRU Model", "Use Embedding + GRU layers + Dense softmax output for next-word prediction."),
+        ("5️⃣ Training the Model", "Train with Categorical Crossentropy loss and Adam optimizer."),
+        ("6️⃣ Generating Text", "Use a seed text and iteratively predict the next words to create a sequence."),
+        ("7️⃣ Deploying with Streamlit", "Serve the model with an interactive app for instant text generation."),
+    ]
 
-    with col1:
-        st.subheader("Step 1")
-        st.write("Enter seed text.")
+    for step_title, step_desc in steps:
+        with st.container(border=True):
+            st.subheader(step_title)
+            st.write(step_desc)
 
-    with col2:
-        st.subheader("Step 2")
-        st.write("Choose number of words.")
+    st.markdown("### 🌐 Live Demo")
+    st.markdown("[Text Generation using GRU Model](https://text-generation-using-gru-model.streamlit.app/)")
 
-    with col3:
-        st.subheader("Step 3")
-        st.write("GRU model predicts next words.")
+    st.markdown("### 🖼️ Visual Workflow")
+    st.image(
+        "https://github.com/shivareddy2002/GRU-Text-Generation/blob/main/UI_Galary/text_generation_flow.png?raw=true",
+        caption="Project workflow from data preparation to Streamlit deployment",
+        use_container_width=True,
+    )
 
 
 # -----------------------------------------------------
@@ -200,12 +231,17 @@ def show_contact():
 
     st.title("📬 Contact")
 
-    st.write("👤 Lomada Siva Gangi Reddy")
+    st.write("**Lomada Siva Gangi Reddy**")
+    st.write("🎓 B.Tech CSE (Data Science), RGMCET (2021–2025)")
+    st.write("💡 Interests: Python | Machine Learning | Deep Learning | Data Science")
+    st.write("📍 Open to Internships & Job Offers")
 
-    st.write("📧 lomadasivagangireddy3@gmail.com")
-
-    st.write("🌐 GitHub")
-    st.write("https://github.com/shivareddy2002")
+    st.markdown("### Contact Me")
+    st.write("📧 Email: lomadasivagangireddy3@gmail.com")
+    st.write("📞 Phone: 9346493592")
+    st.markdown("💼 [LinkedIn](https://www.linkedin.com/in/lomada-siva-gangi-reddy-a64197280/)")
+    st.markdown("🌐 [GitHub](https://github.com/shivareddy2002)")
+    st.markdown("🚀 [Portfolio](https://lsgr-portfolio-pulse.lovable.app/)")
 
 
 # -----------------------------------------------------
