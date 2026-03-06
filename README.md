@@ -118,14 +118,27 @@ A simple **web interface** built with Streamlit allows users to input a seed tex
 ---
 
 ## ⚙️ Usage
-1. Open the Streamlit app.  
-2. Enter a seed text (starting phrase). 📝  
-3. Specify the number of words to generate. 🔢  
-4. Click **Generate** to see the output text. ▶️
 
-**Example Output:**  
-Seed text: `"Once upon a time"`  
-Generated text: `"Once upon a time in a land far away there lived a wise king..."` ✨
+1. Open the **Streamlit web application**.  
+2. Enter a **seed text** (starting phrase) in the input box. 📝  
+3. Specify the **number of words** you want the model to generate. 🔢  
+4. Adjust the **temperature value** to control the creativity of the generated text.  
+   - `temperature < 1` → more predictable text  
+   - `temperature > 1` → more creative text  
+5. Click the **Generate** button to produce the text. ▶️  
+6. The model will generate text **word-by-word based on the seed text**.  
+7. You can **copy or download the generated text** for further use.
+
+---
+
+**Example Output**
+
+- **Seed Text:** `"Once upon a time"`
+- **Number of Words:** `10`
+- **Temperature:** `0.8`
+
+**Generated Text:**  
+"Once upon a time in a land far away there lived a wise king..."
 
 ---
 
@@ -185,6 +198,7 @@ Generated text: `"Once upon a time in a land far away there lived a wise king...
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:f9c74f,100:ff4b4b&height=120&section=footer"/>
 </p> 
+
 
 
 
