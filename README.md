@@ -1,4 +1,4 @@
- <p align="center">
+<p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:8e2de2,100:4a00e0&height=180&section=header&text=📝%20Text%20Generation%20Using%20GRU%20Model&fontSize=34&fontColor=ffffff&animation=fadeIn&fontAlignY=35"/>
 </p> 
 
